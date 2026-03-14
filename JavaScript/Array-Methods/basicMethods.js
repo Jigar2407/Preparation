@@ -35,6 +35,9 @@ console.log(`Join With Specified Derlemeter `,delimeterSpecified);
 stringArray.push("Deep");
 console.log(`Add Elemet At lAst`,stringArray);
 
+numberArray.push(24);
+console.log(`In number Array Add element At Last`, numberArray);
+
 // removes elemet from last index and returns it using array.pop()
 let removedElement = stringArray.pop() ;
 console.log(`removed last index and Removd One is : ${removedElement}`);
