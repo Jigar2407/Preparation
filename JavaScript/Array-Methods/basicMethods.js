@@ -8,6 +8,13 @@ let multiArray = [
     ["this","is","arrray"]
 ];
 
+// Find Out Varibale Is Arriay Or Not 
+console.log(typeof stringArray, typeof numberArray, typeof multiArray) // Wrong Way This Will return Always `object`
+// There is built-in Function `Array.isArray(variable)` which will return boolean accoding to arrray
+console.log(Array.isArray(stringArray), Array.isArray(numberArray), Array.isArray(multiArray))
+
+console.log("Original String Array ",stringArray, "Number Array ",numberArray, "MultiDimentional Array" ,multiArray);
+
 console.log("Original String Array ",stringArray, "Number Array ",numberArray, "MultiDimentional Array" ,multiArray);
 
 // find length
