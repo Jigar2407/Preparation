@@ -209,4 +209,34 @@ X) ERROR : display error message
 XI) DIR : display like list of properties of what you provide especially object
 `console.dir(object)`
 
+-------------------------------------------------------------------------
+@ API(Application Programming Interface)
+
+- React (Frontend) asks for data 
+- Node.js + Express (The API) receives the request, checks if it's valid Authentication Authorization and Multiple VAlidation, and asks the database for the data.
+- MySQL/MongoDB (Database) finds the data and gives it to Express.
+- Express sends that data back to React in JSON.
+
+==> Types Of APIS
+1. REST API(Representational State Transfer)
+- REST is a "set of rules" for building APIs.
+- IT Uses WEB URL & HTTP Methods(GET, POST ...) To Perform CRUD Opearations
+-> HTTP Methods
+GET: Read data. (e.g., GET /api/users gets all users).
+POST: Create new data. (e.g., POST /api/users creates a new user).
+PUT/PATCH: Update data. (e.g., PUT /api/users/123 updates user id 123).
+DELETE: Delete data. (e.g., DELETE /api/users/123 deletes user id 123).
+-> Note : 
+   - Put & Patch Diffence : 
+        - Use PUT when you need to replace the entire resource with new data (Chaange Whole profile)
+        - Use PATCH when you only need to update specific fields of a resource (Change only Email, password or Address)
+
+2. WebSockets (Real-Time APIs)
+- REST and GraphQL are "Request-Response" (React asks, Node answers). But what if you are building a Chat App or a Live Scoreboard? You don't want React to keep asking "Are there new messages?" every 2 seconds.
+- WebSockets create a persistent, two-way open connection between React and Node.js. If a new message arrives in the database, the Node.js server can push it to React instantly without React having to ask for it.
+- Socket.io It is Npm Library which is bidirectional(two Way communication), event-based communication between a web client and a server
+
+3. GraphQL APIs
+4. SOAP & gRPC 
+
 */
