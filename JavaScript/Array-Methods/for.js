@@ -6,7 +6,7 @@ for(let i=0 ; i < dev.length; i++){
 
 console.log();
 for(let key in dev){
-    console.log(dev[key]);
+    console.log(key,":",dev[key]);
 }
 
 console.log();

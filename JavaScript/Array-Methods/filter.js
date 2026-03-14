@@ -20,5 +20,6 @@ let dataSciemtist = dev.filter( (item) => item.designation == "Data Scientist")
 console.log(`Data Scientists Info :`,dataSciemtist);
 
 // employee Who works more than 7 years
-let seniorEmployee = dev.filter( item => ( item.endYear - item.startYear ) > 7 )
+// let seniorEmployee = dev.filter( item => ( item.endYear - item.startYear ) > 7 && item.designation == "Data Scientist" )
+let seniorEmployee = dev.filter( ({ endYear, startYear, designation }) => ( endYear - startYear ) > 7 && designation == "Data Scientist" )
 console.log(`Here Are Employee Who Works more Then 7 years`,seniorEmployee);

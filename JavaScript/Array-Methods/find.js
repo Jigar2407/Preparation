@@ -17,4 +17,7 @@ console.log(`Data Scientist Whse age is greater Than 25`,findFirstDataScinetist)
 let employee = dev.find( (item) => item.startYear % 4==0)
 console.log(`EMployee Who Started Working on Leap Year `,employee );
 
+let findcompany = dev.find( ({companey}) => companey == "Netclues" );
+console.log(`Data who Company name netclunes is `, findcompany);
+
 
