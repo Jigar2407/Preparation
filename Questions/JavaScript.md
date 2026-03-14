@@ -1,9 +1,3 @@
-
-
-# JavaScript & Node.js Interview Q&A — Entry Level MERN Stack
-
----
-
 ## Topic 1 : JavaScript Engine & V8
 
 ---

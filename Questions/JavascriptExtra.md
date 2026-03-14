@@ -1,9 +1,3 @@
-
-
-# JavaScript & Node.js — Complete In-Depth Interview Q&A (Part 2)
-
----
-
 ## Topic 1 : JavaScript Engine & V8 (Deep Dive)
 
 ---
