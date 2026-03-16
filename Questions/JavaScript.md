@@ -1012,9 +1012,10 @@ function processUser(name, callback) {
     console.log(`Processing ${name}`);
     callback(name);
 }
-processUser("Deep", function(name) {
+const dev = (name) => {
     console.log(`${name} processed successfully`);
-});
+}
+processUser("Deep", dev);
 
 // Asynchronous callback
 console.log("Start");
