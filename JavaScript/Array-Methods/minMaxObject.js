@@ -14,3 +14,4 @@ let ages = dev.map( (item) => item.age );
 maxAge =  Math.max(...ages);
 minAge =  Math.min(...ages);
 console.log(minAge,ages,maxAge);
+

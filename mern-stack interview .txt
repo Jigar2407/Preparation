@@ -1,0 +1,654 @@
+@javascript
+
+Que. What Is JavaScript Scripting Language or Programming?
+=> JavaScript is Dynamically Typed Programming Language User To Interact With Web app and Single threaded and Its Supports both Client Side And Server Side 
+
+Que. Difference between Var, Let, Const
+=> var : Function Scoped and Access Within Function Where Declared And It Can Be Accessed Before Declared(hoisting)
+=> let : Block Scoped And It Can Be ReAssigned After Initialied but Have no Hoisting(means It Gives Reference Error If not Declared Before)
+=> const : Block Scoped And It Can not be Be ReAssigned (constant) After Initialied but Have no Hoisting(means It Gives Reference Error If not Declared Before)
+
+
+Que. datatype which primitive and reference type
+=> primitive : Immutable ,stored Directly in Memory Location (Stack) e.g. String, number, Boolean null undefined symbol bigint
+=> Reference : Mutable , stored in object key value pair only object name(References location=pointers) stored in stack(memory location) and whole object is stored in Heap Location . multiple variable can point to same object location and one modification affect others too. e.g. objects, arrays, function
+
+Que. Hoisting
+=> Hoisting Is Where Variable and Scope Are Moved To Top Of Their Scope Before Execution and Allows Variable And Functions Use Before declared (undefined)
+
+Que. Closure
+=> A closure Is Where Inner Function Has Access To variable and Parameters Of its Outside Function Even After Outer Function Has Finished Executing
+
+Que. == and ===
+=> ==(loose Equality) before Comparing it converts To Same Datatype
+=> ===( Strict Equality) Without comparing It Compares Both Value And Datatype
+
+Que. Differentiate null And undefined
+=>undefined Means variable is Declared and Not Assigned And Default Value Also Not provided.
+=>null : Absence Of Value Done or Assigned  By Developer
+
+Que. Discuss Type Of Functions
+=>Named Function: Define Using Function Keyword Following by name and it is Hoisted
+e.g. function dev(){//code}              dev() 
+=>Function Expression: Function Is Assigned To Variable  not Hoisted
+e.g. let dev = function (){//code}       dev();
+
+=>Arrow Functions : is a sort function in this function there not use function keyword, in this function there are multiple line you can use curly braes after arrow if there only one parameter do not need to write parentheses.
+e.g. let dev = (a,b) => console.log(a+b);   dev(3,5);
+=>Anonymous Function =>function Without A NAme And Often Use In Callbacks Like (setInterval() Or setTimeout())
+e.g. setTimeout( () => {
+    coonsole.log("Arrow Function");
+},2500)
+=>Constructor Function : used With New Keyword To Create Object Instances
+e.g. function dev(){this.name="deep"} 
+    let me=new dev(); console.log(me);
+
+
+Que. Scope Of Variable
+=> Global(Declared Outside Function) And Local (Declared inside Function)
+
+Que. What IS Async/await in JavaScript?
+=> Async : Writes Promise as if it is Synchronous.it always returns Promise. And Execution Thread is "not" blocked.
+=> Await : only used inside "async function" and it is used to pause the execution of function until promise is resolved or rejected. If it is resolved then is returns resolve value if promise rejects it throws an error and handled using try catch block.
+
+Que. differentiate synchronous code and asynchronous code
+=> Synchronous Programming(Blocking) Means Operations Are Performed One After Another in Sequence Each Line Will Wait Previous One To Complete Before Proceeding To next One.
+=>Asynchronous Programming(Non Blocking) Allows Multiple Task To Run Independently Of Each other E.g.. One task Is Takes Longer time Than Usual than Next One Can procced
+
+
+Que. What Is Event Loop in Js and call stack, callback queue, microtask queue?
+=> Call Stack : is A data structure used by JavaScript to keep track of function execution. function are added to top in stack when called , and when completed it pope off.
+=> Web Api : features provided by browser that handles asynchronous task like setTimeout, DOM Eveents.
+=>Callback Queue : it Holds Asynchronous callbacks From Web APIs.(Microtask Queue : Contains High Priority Callbacks like Promises)
+=>Event Loop : it ensures that Asynchronous Callbacks are Executed after the Stack is Empty. Event Loop checks Call Stack Is Empty? if empty then pics up functions from Callback Queue or Microtask Queue and push into Call Stack.
+
+Que. what is Promises? how this is different with callback?
+=> Promise : is an object that Represent the Completion(resolve) Or failure(reject) of Asynchronous Operation. like Placeholder Where Value Is Available in Future.
+
+Que. What is DOM And How its Manipulated?
+Que. map() filter() find()? 
+
+Que. Shallow Copy And Deep Copy Difference?
+=> Shallow Copy : Creates New Array or Object but Instead of Duplicating the Value it Copies the Reference to value, It Means Modification Also Reflect In Original.
+=> Deep Copy : Creates New Object And Array And Repetadly Copies All Nested Object and Arrays. Totally Independent From Original.
+
+Que. what is this keyword in js? how it behave in regular and arrow function
+=> alone this and in function this returns Global object Window. in object method this retunes object itself. in event this refers the element that refers.
+
+Que. Differentiate call() apply() bind()
+=> call() method calls function immediately. First argument is object which used in function using this Property and others are function parameters.
+=> apply() : is just like call() but first argument is object and second one is array consist of arguments.
+=> bind() : this will create "new function" with object and parameters that are defined. unlike call() and apply() this will not execute function immediately.
+e.g.
+let dev={name:"Deep",age:23};
+function devBio(message,extra){ return `${message},${extra} my name is ${this.name} and age is ${this.age} `}
+console.log( devBio.call(dev,"hello","extra") );
+console.log( devBio.apply(dev,["hello","extra"]) );
+let anotherDev = devBio.bind(dev,"hello","extra");
+comsole.log(anotherDev());
+
+
+
+Que. Modules in Js ? Differentiate Commonsjs and ES6 modules?
+=> Module is block of code in external file that perform specific task or function.
+=> commonJs : Default,synchronous loads,
+    require() : used to imports modules.it synchronously (blocking way) loads the module that in exports object.
+    module.exports / exports : used to export values.
+=> ES6 : Asynchronous Loading. Can imports Commons module(not vice versa).to use .mjs extension with single file. or in package. json add "type" : "module" will treat all. js file as ES Module, use only import and export.
+
+Que. ES6 features
+=> Let and Const
+=> Arrow function 
+=> template Literals ($(dev)) e.g.(my name is $(name))  simple=> console.log("my name is", name)
+=> function Default parameter
+=> Rest parameter and Spread operator
+=> Modules
+=> Promises 
+=> for .. of
+
+Que. Differentiate localStorage, session Storage And Cookies?
+Que. Differentiate setTimeout() and setInterval()?
+Que. what is Memory Leaks and How to Prevent It?
+
+Que. Array methods
+=> ar.length, ar.at(index) : return value ,ar.pop(), ar.push(value), ar.shift() : delete first, ar.unshift(val) :add at 0 index, delete ar[index], ar.sort(), ar.reverse()
+ar.splice(start [,deleteCount,RepaceValue1,RepaceValue2,..,ReplaceValueN])
+ar.slice([start,end]) : return copy 
+ar.flat() : take 3d array in to single array
+ar.join(delemeter) : takes array and returns string 
+
+Que. iterate array 
+=> ar.forEach( function(value,index,arrayName) {})
+
+Que. String methods
+=> str.length, str.toUpperCase()/toLowerCase() , 
+str.indexOf("substr") :if found 0 else -1
+str.includes(substr[,pos]) : returns boolean
+str.slice(start[,end]) / str.substring(start[,end]) : returns substring ,str.substr(start[,length]) 
+str.split(delemeter) : split sentance words into array.
+
+
+Que. Math methods
+=> Math.floor() /round() / random() / max(n1,n) / pow(n,pow) /  
+
+Que. type casting
+=> Number(val),Boolean(), val.toString,ParseInt(val),parseFloat(val).
+
+
+Que. Spread operator, Rest parameter
+=> Spread operator Represent With Triple Dot(...) It allows inerrable Such As Array or String To be Expanded Into Separated Elements.
+=> Rest Parameter allows function to accept multiple argument and returns all in single array.
+
+Que. What is HTTP cache
+
+@for of for i foreach
+let jigo={
+    name:"jigo",
+    age:23,
+    college:"spu"
+};
+let dev=[1,3,5,7,8,9,9];
+for(let i in jigo){
+    console.log(jigo[i])
+}
+console.log();
+for(let i of dev){
+    console.log(i)
+}
+console.log();
+dev.forEach(function(value,index){
+    console.log(index,value)
+})
+
+
+
+
+@jquery
+
+
+@oops
+Que. What is oops?What Are The Featuers
+Que. class
+=> class is like bluprint or a template that defines a type of object. class contains Property ,Attributes, Methods, Constructor, Descrtuctor. Defined At Begining Of Program. Do not Consume Memory Space Until Object Is Created
+
+Que. object
+=> Object Is Instance Of the Class. Object Are Allocate memory When ever They are created. it can be Manipulated.
+
+Que. What Are Access Modifiers.=>how attribute and prperty use by child class.
+=> Public,protected,Private
+=> public : Access EveryWhere.
+=> Protected : Acess in Both Base Class And Parent Class.
+=> private : only access in parent class.
+
+Que. Inheritance
+=> child calss will inherits all public and protected property and methods from parent class.single(one superclass one subclass), multiple(multiple parent one child, c->b,a), multilevel(a->b,c->b), hybrid(con=mbination of more than one inheritance), heirarchical(b->a,c->a,d->a,)
+
+Que. Encapsulation
+=> wrapping Data, variable, methods into single unit or class for access.it changes private variable through public methods.
+
+Que. Polymorphysm
+=>it allows differnt classed to implement the same method with differnt functionality.by overrriding(child and parent have same functiona & argument),abstract class and interface
+
+Que. Abstraction
+=>The Concept Of hiding the Complex implementation details of an object and exposing only Essential Features or Functionalities using Abstract Class and interfaces.
+
+Que. What is Abstract Class
+=> Using Abstract keyword. Atleast one Abstract Method it also can properties (can't be abstracted). and It Musr Be Public Or Protected.extends another abstrct class and implement interfaces.
+
+Que. Interface
+=> it dosent Contain property only Abstract Methods. Abstract Method Must be public and no need to write abstrct keyword
+
+Que. static
+=> static proprtty or method called without object. outside class (classname and  ::), inside class with (self keyword and ::)
+
+
+
+
+@Reactjs
+Que. What is React?
+=> It Is A JavaScript Library for Building User Interfaces, Primary Maintained By Facebook and Used To Builds Single page Application using Components, Virtul dom, JSX.
+
+Que. NextJs featues?
+=>nextjs is framework of reactJs Tpo build fast and full stack web application with featuers like server side rendering , and ststic side generation,API routes.
+Que. Features Of React
+=> Declarative UI, Component Based Architecture, Virtual DOM, One Way data Binding, Reusable Components
+
+Que. What Is JSX?
+=>JavaScript and XML. It Allows You To Write HTML In React. Makes Code Easier To Read And Write.
+
+Que. Virtual DOM.
+=> It IS a Copy of Actual DOM Which Kept In Memory. When React Detect Change in Component and it compares both Virtual DOM and REAL(Old) DOM and Change Only Updated Component. Which Makes React faster.
+
+Que. What Is Reconciliation in react?
+=> It is process To Compare Current Virtual Dom To Old DOM To check what is changed.
+
+Que. What Is Component and Describe Type Of Components?
+=> It Is The Building Block Of React App, 
+=> Functional Components : they are JavaScript Functions That Accepts props As Parameter and Return JSX  To Describe UI. this keyword is not used.in lifecycle hooks
+e.g. function Dev(props){
+    return <h1>Dev From Chimala {props.life}</h1>;
+}
+=> Class Components : based On Es6 Modules and it Requirs render() method that return The JSX.in lifecycle use methods.
+eg. class DevComponet extends React.Component{
+    render(){  
+        return <h1>Dev From Chimala {this.props.life}</h1>; }
+}
+
+Que. Props
+=> Used TO Pass Data From Parent Component to Child Component which is read only. Child component cant change props data.
+eg.
+
+function parent(){
+	return <Child title="Dev's" content="Learn MERN stack developer"
+
+}
+
+function Child(props)
+{
+	return (<div>{props.title}{props.content}<div>)
+}
+
+
+Que. State or How Does State Management Work In Reactjs?
+=> State used To Manage data Within A Component That Can Change Over Time When State Change, React re-renders The Component to reflect the updated Data. State is private component so it cant be directly access by another component. To Use State Use Hook "useState" in functional component.
+e.g.
+import React,{useState} from 'react';
+function Dev(){
+ let [age, setAge] = useState(0);
+    return (<div> age={age}
+        <button onclick={ () => setAge(age + 1) }>add age by 1</button>    
+    </div>)
+}
+
+Que. What Is Lifting State Up?
+=>Lifting State Up Is Technique Used To Manage Shared State Between Components. When Multiple Component Need to Access or Modify Same Sate.
+
+Que. Component Lifecycle
+=>React Life Cycle Is Set Of Built In Methods(in class Component) and behaviours(in Function Component Using Hooks) that runs during Component Creation Updating and Destruction. There Are Three Phases In Life Cycle Mounting, Updating, Unmounting.
+Mounting : When Component Is Being Created and Inserted In DOM
+Updating : When Component is Being Re-Rendered Due To Change In props or state.
+Unmounting : When The Component Is Being Removed From DOM.
+=>IN Class Component : 
+Mounting : constructor(),getDerivedStateFromProps(props,state), render(), componentDidMount()
+Updating : getDerivedStateFromProps(), shouldComponentUpadte(nextProp,nextState), render(), componentDidUpdate(prevProps,prevstate,Snapshot)
+Unmounting : componentWillUnmount()
+
+=>Function Component : 
+Mounting : useEffect( () => {}, [])
+Updating : useEffect( () => {}, [count])
+Unmounting : useEffect( () => { return ()=>{} }, [])
+
+
+Que. What Is useEffect()
+=>It Is a Hook Which Is used to fetching data, Changing DOM Manually, Cleaning up before component unmounts etc...
+
+Que. What IS useContext() or context API.
+=>UseContext() is Hook That allows You To Access Global state or Value  Without Passing Props Manually inside functional Components
+
+Que. How to Use Css In The React.
+=> Regular Css File Then Import File And Use It
+=> CSS Module : create Dev.module.css file for Dev.js to use it first import "import Devstyles from './Dev.module.css' " and then use "className={Devstyles.title}"
+=>Inline Css : style={varible that holds styles}
+=>tailwind Css : install tailwind Through Command npm and then add it in app.css and use it component.
+
+Que. What Are React Hooks?
+=> Features in Functional Components Which Allows you To Use UseState, Lifecycle Method(using useEffect) and other react function
+
+Que. React Router.
+=> It Is a Library that enables navigation among views in react application.
+
+
+Que. What Are controlled component and uncontrolled component?
+=> controlled and uncontrolled component used to access data from form.
+=> controlled : form data handled by react component using useState hook.
+=>uncontrolled : form data handled by DOM and extract values using UseRef hook
+
+Que. What Is REDUX And Why it is used?
+=> Used For Manage State In JavaScript Application. it helps to centralise state(whole application state in single store which helps to track and modify) and makes easier to understand.
+
+Que. What IS High Order Components(HOC)?
+=> HOC are functions That Takes Component and return a new one with additional features.
+
+
+Que. What Is Lazy Loading.
+=> React Renders React Component or webpage when user needs it. It Reduce loading time. And only necessary component will be loading.
+
+Que. What Is Prop Drilling?
+=> prop or data passed from one parent component to lower children component resulting multiple level.
+
+Que. What Are React Framework? How It IS Different From React.
+=> React Has NextJs Framework to Build Fast And Full stack application With Features Like SSR, and  simplify API Routes.
+
+Que. What Is Server Side Rendering?
+=> Server side rendering is the process of rendering the web page on the server and then send full page to client.
+
+Que. Port In ReactJs?
+=>In React, a port refers to the network port on which the development server runs. By default, Create React App uses port 3000. This port allows you to access your application in the browser by navigating to http://localhost:3000.
+
+Que. What IS Key In React List?
+=> A “key” is a special unique string (which give each list identity) you need to include when creating lists. with Keys help React identify which items have changed,or are added, or are removed. 
+eg.
+<ul>
+<li key={unique string}> value</li>
+<ul>
+
+Que. What Is Conditional Rendering.
+=> Conditional rendering means Displaying Different Component based On Specific Condition or state.
+
+Que. port in react. ----
+=>In React, a port refers to the network port on which the development server runs. By default, Create React App uses port 3000. This port allows you to access your application in the browser by navigating to http://localhost:3000.
+
+
+
+
+@Node.js
+Que. What IS Node.js?
+=> Node.js is a runtime environment that allows you to run Javascript code on server side.
+
+Que. Features of Node.js
+=> Asynchronous and Event Driven, Very Fast(V8 Engine),Single Threaded but Scalable
+
+Que. what Is NPM 
+=>Node Package manager is default Package Manager for Node.js.it Helps to Install, Manage, share Reuseable Javascript Code.
+
+Que What is Stream is Node.js?
+=> Stremas Are Object That used to Read And Write Data In Chunks.
+
+Que. Diffrence Between Npm and yarn?
+
+Que. What is package.json?
+=> Package.json is a Manifest File That Describes the Project metadat, Dependences, scripts,author, licences
+
+Que. What is Express.js?
+=>Express.js is A Minimal And Flexible Node.js Web Application framework that Provides set of Features For Building Web API And web Apps.like Easier Routing, Middleware Support, simplifies server Creation.
+
+Que. Explain Middleware in Express.js
+=> Middleware is between Client And server Handling Http request and responce used in login and authentication.
+=> Function that Executes During the Request responce Cycle.Middleware have Access to "req,res,next()".
+eg.
+app.use( (req,res,next) => { console.log("next req",date.now();
+next();
+    ) })
+
+Que. how routing Works in both Node and Express?
+=>Node
+const http=require('http');
+const server = http.createServer( (req,res)=>{
+    if(req.url === "/" && req.method ==="GET"){
+        res.end("home Page");
+    }else{
+        res.statusCode=404;
+        res.end("Not FOund");
+    }
+} );
+=>Express.js
+app.get('/about', (req,res) => { res.send()} );
+app.post('/submit', (req,res) => { res.send("form submitted")} );
+app.use( (req,res) => { res.status(404).send("page Not Found")} );
+
+Que. What Are REST APIs.
+=>REST stands For Represerntational State Trasfer.REST api is A Way for systems To Communicate Over HTTP  using Http methods (GET,POST,PUT,DELETE)
+
+Que. What Are The ENvironment VAriable and How are they Used.
+=>Environment Variable are Key-value Pair used To configure Application Outside source Code.Used To Store API keys,Databse Credentials,Port numbers, secrets(JWT tokens,Passwords)
+
+Que. Connect Node.js and MongoDB
+=> const { MongoClient } = require('mongodb');
+const uri = "mongodb://localhost:27017";
+const client = new MongoClient(uri);
+await Client.connect();
+
+que. What is res.send() vs res.json() in Express?
+    res.send(): Sends a response of any type (HTML, string, buffer).
+    res.json(): Sends a JSON response.
+
+
+
+
+
+
+
+
+@Database
+Que. SQL and NoSQL
+=>sql :Realtional, table Based,sql queruy, reult in multi row  transaction,sql query
+=>nosql : no relation, document based,results unstructured json,dynamic query
+
+
+Que. Normalization and Denormalisation
+=> Way To Orrganise the data to reduce redundancy(duplicate data) and improve data integrity (correctness)
+
+Que. What is Index In Database
+=> run query faster by creating index.
+
+Que. Second Highest Salary.
+=>second hights salary select max(salary) from employee where salary <(select max(salary) from employee).
+=>select salary fro employee order by salary desc limit 1 offset 1.
+
+Que. What is MongoDB And How It Used?
+=> MongoDB is a popular open-source, NoSQL database that stores data in flexible, JSON-like documents rather than tables and rows like traditional relational databases
+
+@mongodb
+Que. Datatype
+=> string : enclose with single or double quotes
+=> integer ,double,boolean :true ,false
+=> date : new Date() //insert current date
+        : new Date("2002-02-14")
+=>null,
+=>arrray : ["mern stack","laavel","QA"]
+=> you can add nested document
+    eg address:{
+        street:"chimla ugamana faliya",
+        city: "chikhli"
+        pincode : 396521
+    }
+
+
+show dbs 
+Que: to Create The Databse (group of collection)
+=>use Dev
+Que. to drop the Database 
+=> db.dropdatabase()
+
+Que.collection (group of documents)
+=> show collections
+=> db.createCollection("employee" , { size:10000000 ,max:100} )
+=> db.employee.drop()
+
+Que. insert
+=> db.employee.insertOne({name:"Dev",age:23,department:"MERN Stack Trainee",salary:25000,date_of_joining:"2002-12-01"})
+=>db.employee.insertMany([{name:"jigo",age:22,salary:20000},{name:"ketul",age:25,salary:25000},{name:"vishlo",age:22,salary:350000}]) 
+
+
+Que. find ( db.collection.find( {where cluse} ,{ Which column You Want} ))
+=> db.employee.find()
+=> db.employee.find().pretty()
+=> db.employee.distinct("name")
+=> db.employee.find( { name:"Dev",age:23 } ) 
+=>db.employee.find({name:"Dev",age:23},{name:true})         //this will give id and name column according to condition
+=> db.employee.find({name:"Dev",age:23},{name:false,_id:false})      // this will give except( name and _id ) and give all other column
+
+Que. sort (1:asc,-1:desc)
+=> db.employee.find().sort({name:-1,age:1})
+
+Que.limit and skip
+=> db.employee.find().limit(2).skip(3)
+
+Que. Update 
+=>set:to update record collection (db.collection.updateOne/updateMany( {findColumn:FIndValue} ,{$set: {FindColumn:SetValue} } ))
+=>unset : to remove that column from collection
+db.collection.updateOne/updateMany( {_id:ObjectId("1234567890qwertyuiop1234") } , { $unset: {findcolumn:"" } } )
+
+Que. Delete (db.collevtion.deleteOne/deleteMany( {findColumn:Value} ))
+=>db.employee.deleteMany( {name: {$exists:false}} )
+
+Que. Count the document
+=> db.employee.countDocuments()
+=> db.employee.countDocuments( { "age":{ $gt : 30}  } )
+
+Que. Comparison oprator
+=> db.collection.find.( { "column" : { $lt/$gt : value } } )   //less than and greter than
+=> db.collection.find.( { "column" : { $lte/$gte : value } } )   // less than and greater than equal to
+=> db.collection.find.( { "column" : { $ne : value } } )   // not Equal to
+=> db.employee.find( { "column" : { $lt/$gte :value , $lt/$gte :value  } } )        //Between and
+=> db.employee.find( { "column" : { $in/$nin : ["value1","value2","value3"] } } )        // if column have "in or not in" value
+
+Que. Logical operator
+=> db.employee.find( { $and/$or/$nor : [ {column:value}, { column: { $lte : value } } ] } )
+=> db.employee.find( { age : { $not: { $gte:30 } } } )      //not gte 30 including null
+
+
+
+
+@git versions
+Que. What Is Version Control System?
+=> Version Control System That helps Developer to Track Their Codebase,Collabrate With Other And Manage Multiple Version Of ap project.
+
+
+Que. What is Git & GitHub?
+=> GitHub is Web-Based Platform used For Version Control.A website to host Repository Online.
+=> Git : Open Source Version Control System.
+
+Que. Git Commands
+=> Clone : clone Repository In Local Machine
+    git clone url    
+=> Add : Track Files and Changes in Git. once You Run command it states That all changed file now Ready To Commit.
+    git add .       
+=> commit : save file in git
+    git commit -m "Dev Done Some Chage In Dev.js" -m "Description of changes made by Dev"
+=> push : Upload your Commit into Github Repository. there are two more argument First is "original" Which  Second One is "master"
+    git push original master
+=> pull (Opposite of Push) : Download changes from updated Repository To Local Machine
+=> Status : it shows all file that are updated deleted or added but haven't commit.
+    git status
+=> remote : to add reference to git cli repository on local.
+    git remote add origin url
+
+Que. What is Merge Conflict and How Do You Resolve It?
+Que. Git pull,git fetch,git merge, git rebase
+Que. 5 developer Works on same Project How ToMerge on Github.
+
+
+@advance
+Que. What is SQL injection?
+=> is a code that access a protected information by inserting malicious SQL statement
+Que. Differance Between authentication and Authorization?
+=> Authentication Verifies Who user is.
+=> Authorization determine what user can do or access.
+
+Que. what is JWT?
+=>It is Token Based Authentication means Generating Token that User Sends with each request for access protected resorces. 
+=> stands for json web tokens.primary used in authentication and authorization and surely share informatiom between two pary clent and server.
+
+
+Que. how Do session and Token Works?
+Que. What Is REST.
+
+Que. how HTTP work and What are The Methods.
+=> http to commuicate at www.it defines how web  clients and severs exchange data.GET,POST,PUT,DELETE.
+Que. status Codes.
+=>informational (1xx), success (2xx), redirection (3xx), client error (4xx), and server error (5xx). 
+
+que.media Query.
+=>
+
+que.flex box.
+=>
+
+que.flex and grid.
+=>
+
+que.bootstrap and how to use bootstrap class.
+=>
+
+@programs
+Que. Min and Max From Array
+=>
+let array = [[3,4,5],[1],[8,200],[15,-20,6]];
+let array = [3,4,5,1,8,200,15,-20,6];
+
+let min=Infinity;
+let max=-Infinity;
+for (let Original of array){
+    for(let sub of Original){
+        if(min>sub){
+            min=sub;
+        }
+        if(max<sub){
+            max=sub
+        }
+    }
+}
+console.log(min," : ",max)
+
+Que. palindrom("deed")
+=>function dev(string){
+    let length=string.length;
+    for(let i=0;i<length/2;i++){
+        if(string[i] !== string[length-1-i]){
+            console.log("not Paliindrom")
+            return false;
+        }
+    }
+    console.log(this String ${string} is palindrom);
+}
+dev("dev")
+
+Que. Armstrong(153=1 cube + 5 cube +3 cube)
+let num=153;
+let length=num.toString().length;
+let sum=0;
+let temp=num;
+while(temp>0){
+    let rem=temp%10; 
+    sum+=Math.pow(rem,3);
+    temp=parseInt(temp/10);
+}
+if(sum==num){
+    console.log("armstrong")
+}else{
+    console.log("not")
+}
+
+Que. fibonnachi 0 1 1 2 3 5 ...
+=>let a=0;
+let b=1;
+console.log(a," ",b);
+for(let i=2;i<6;i++){
+    let next=a+b;
+    console.log(" ",next);
+    a=b;b=next;
+}
+
+
+
+
+
+
+
+
+
+1. react framework.brif intriuction   -----
+=>React is Javascript librrary For Building User Interfaces specially single page application. using virtual dom, jsx , component.
+
+2. reactjs and nextjs difference.    -----
+3. what is react component what is type nd explain brief.
+4. callback function(web api,callback queue,evnet loop).
+5. what is callback hell?  ------
+=>when asynchronous operations are nested within each other using callbacks.
+6. asyc and await?
+7. error handlng.
+8. map and forEach difference.  -----
+9. array,string methods.(filter,map) 
+10. rest parameter, spread operator.  
+11. mysql create table,  
+12. five databse same table name insert into specific databse table  (dbname.table)
+13. join left right inner difference.  
+14. null and undefined difference. 
+15. jwt and what is jwt token .  ----
+16. what is middleware. ----
+17. for password encryption what is node.js package. ----
+18. what is fs module.  -----
+19. port in react. ----
+=>In React, a port refers to the network port on which the development server runs. By default, Create React App uses port 3000. This port allows you to access your application in the browser by navigating to http://localhost:3000.
+20. api how to fetch api.  ----
